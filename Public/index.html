@@ -1,55 +1,37 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="hu" ng-app="Munkaido">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{title}}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="Assets/css/app.css">
 </head>
 <body class="bg-gray-800">
     <div class="flex flex-col items-center justify-center">
+      <div class="min-h-full">
+        <nav class="bg-gray-800">
+        <div class="flex items-baseline space-x-4">
+          <a href="#!/" ng-class="{'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-semibold': location === '#!/', 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium': location !== '#!/'}">Főmenü</a>
+          <a href="#!/employee" ng-class="{'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-semibold': location === '#!/employee', 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium': location !== '#!/employee'}">Alkalmazottak</a>
+          <a href="#!/worktime" ng-class="{'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-semibold': location === '#!/worktime', 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium': location !== '#!/worktime'}">Munkaidő</a>
+          <a href="#!/statistics" ng-class="{'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-semibold': location === '#!/statistics', 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium': location !== '#!/statistics'}">Statisztika</a>
+          
+        </div>
         <div class="flex flex-col justify-center">
-          <h1 class="text-3xl font-bold m-10 text-neutral-50">Munkaidő App</h1>
-          <div>
-            <label for="nev" class="block text-sm font-medium leading-6 text-gray-900 text-neutral-50 font-semibold">Név</label>
-            <div class="relative rounded-md shadow-sm">
-              <input type="text" name="nev" id="nev" class="block w-full rounded-md border-0 py-1.5 pl-2 pr-1 text-gray-900 ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Munkáltatott neve">
-
-            </div>  
-          </div>
-          <div>
-            <label for="cim" class="block text-sm font-medium leading-6 text-gray-900 mt-2 text-neutral-50 font-semibold">Cím</label>
-            <div class="relative rounded-md shadow-sm">
-              <input type="text" name="cim" id="cim" class="block w-full rounded-md border-0 py-1.5 pl-2 pr-1 text-gray-900 ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Lakcím">
-
-            </div>  
-          </div>
-          <div>
-            <label for="pozicio" class="block text-sm font-medium leading-6 text-gray-900 mt-2 text-neutral-50 font-semibold">Pozíció</label>
-            <div class="relative rounded-md shadow-sm">
-              <input type="text" name="pozicio" id="pozicio" class="block w-full rounded-md border-0 py-1.5 pl-2 pr-1 text-gray-900 ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Betöltött pozíció">
-
-            </div>
-           </div>  
-            <div>
-                <label for="oraber" class="block text-sm font-medium leading-6 text-gray-900 mt-2 text-neutral-50 font-semibold">Órabér</label>
-                <div class="relative rounded-md shadow-sm">
-                  <input type="number" name="oraber" id="oraber" class="block w-full rounded-md border-0 py-1.5 pl-2 pr-1 text-gray-900 ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="HUF">
-    
-                </div> 
-            </div>
-            <div class="flex gap-2">
-                <button class="bg-emerald-400 hover:bg-emerald-500 text-gray-800 font-semibold mt-5 mx-auto py-2 px-4 border border-emerald-500 rounded shadow"> Hozzáadás </button>
-                <button class="bg-sky-400 hover:bg-sky-500 text-gray-800 font-semibold mt-5 mx-auto py-2 px-4 border border-sky-500 rounded shadow"> Módosítás </button>
-                <button class="bg-red-400 hover:bg-red-500 text-gray-800 font-semibold mt-5 mx-auto py-2 px-4 border border-red-500 rounded shadow"> Törlés </button>
-            </div>
+          <h1 class="text-3xl font-bold m-10 text-center text-neutral-50">{{title}}</h1>
+          <main ng-view></main>
             
         </div>
       </div>
 </body>
-<script src="Assets/js/angular-route.min.js"></script>
 <script src="Assets/js/angular.min.js"></script>
+<script src="Assets/js/angular-route.min.js"></script>
 <script src="Assets/js/axios.min.js"></script>
+<script src="Assets/js/app.js"></script>
+<script src="Controllers/HomeCtrl.js"></script>
+<script src="Controllers/EmployeeCtrl.js"></script>
+<script src="Controllers/StatCtrl.js"></script>
+<script src="Controllers/WorktimeCtrl.js"></script>
 </html>
