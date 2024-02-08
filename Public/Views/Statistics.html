@@ -1,0 +1,36 @@
+<h3 class="text-lg first-letter:uppercase">{{month}}</h3>
+
+<table class="w-full *:border *:border-white">
+    <thead>
+      <tr class="*:border *:border-white *:p-2">
+        <th>
+          Név
+        </th>
+        <th>
+          Órabér
+        </th>
+        <th>
+          Ledolgozott órák száma
+        </th>
+        <th>
+          Fizetés
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="*:border *:border-white *:p-2" ng-repeat="stat in stats">
+        <td>
+          {{stat.name}}
+        </td>
+        <td>
+          {{stat.pricePerHour | currency: "HUF " : false : ""}}
+        </td>
+        <td>
+          {{stat.hours}} óra
+        </td>
+        <td>
+          {{stat.salary | currency: "HUF " : false : ""}}
+        </td>
+      </tr>
+    </tbody>
+    </table>
